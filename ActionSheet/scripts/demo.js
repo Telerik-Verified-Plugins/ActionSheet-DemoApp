@@ -4,46 +4,40 @@
 
     DemoViewModel = kendo.data.ObservableObject.extend({
 
-        scanBack: function () {
-            this.scan(false, false);
+        share: function () {
+            this.showActionSheet({
+                'title': 'What do you want with this image?',
+                'buttonLabels': ['Share via Facebook', 'Share via Twitter'],
+                'addCancelButtonWithLabel': 'Cancel',
+                'androidEnableCancelButton' : true,
+                'addDestructiveButtonWithLabel' : 'Delete it'                
+            });
         },
 
-        scanBackFlip: function () {
-            this.scan(false, true);
+        delete: function () {
+            this.showActionSheet({
+                'addCancelButtonWithLabel': 'Cancel',
+                'addDestructiveButtonWithLabel' : 'Delete note'
+            });
         },
 
-        scanFront: function () {
-            this.scan(true, false);
+        logout: function () {
+            this.showActionSheet({
+                'buttonLabels': ['Log out'],
+                'androidEnableCancelButton' : true,
+                'addCancelButtonWithLabel': 'Cancel'
+            });
         },
 
-        scanFrontFlip: function () {
-            this.scan(true, true);
-        },
-
-        scan: function (preferFrontCamera, showFlipCameraButton) {
+        showActionSheet: function (options) {
             if (!this.checkSimulator()) {
-                cordova.plugins.barcodeScanner.scan(
-
-                    // success callback function
+                window.plugins.actionsheet.show(
+                    options,
                     function (result) {
-                        // wrapping in a timeout so the dialog doesn't free the app
-                        setTimeout(function() {
-                            alert("We got a barcode\n" +
-                                  "Result: " + result.text + "\n" +
-                                  "Format: " + result.format + "\n" +
-                                  "Cancelled: " + result.cancelled);                            
+                        // wrapping in a timeout so the dialog doesn't freeze the app
+                        setTimeout(function(buttonIndex) {
+                            alert('button index clicked: ' + buttonIndex);
                         }, 0);
-                    },
-
-                    // error callback function
-                    function (error) {
-                        alert("Scanning failed: " + error);
-                    },
-                    
-                    // options objects
-                    {
-                        "preferFrontCamera" : preferFrontCamera, // default false
-                        "showFlipCameraButton" : showFlipCameraButton // default false
                     }
                 );
             }

@@ -33,34 +33,11 @@
             if (!this.checkSimulator()) {
                 window.plugins.actionsheet.show(
                     options,
-                    function (result) {
+                    function (buttonIndex) {
                         // wrapping in a timeout so the dialog doesn't freeze the app
-                        setTimeout(function(buttonIndex) {
+                        setTimeout(function() {
                             alert('button index clicked: ' + buttonIndex);
                         }, 0);
-                    }
-                );
-            }
-        },
-
-        encode: function () {
-            if (!this.checkSimulator()) {
-                cordova.plugins.barcodeScanner.encode(
-
-                    // pick one of TEXT_TYPE / EMAIL_TYPE / PHONE_TYPE / SMS_TYPE
-                    cordova.plugins.barcodeScanner.Encode.TEXT_TYPE,
-
-                    // the thing to encode - for a link use TEXT_TYPE above
-                    "http://www.telerik.com",
-
-                    // success callback (will currently not be invoked)
-                    function (result) {
-                        alert("Encoding succeeded: " + result);
-                    },
-
-                    // error callback
-                    function (error) {
-                        alert("Encoding failed: " + error);
                     }
                 );
             }

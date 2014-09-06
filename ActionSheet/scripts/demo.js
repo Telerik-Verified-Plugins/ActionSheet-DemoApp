@@ -9,7 +9,8 @@
                 'title': 'What do you want with this image?',
                 'buttonLabels': ['Share via Facebook', 'Share via Twitter'],
                 'addCancelButtonWithLabel': 'Cancel',
-                'androidEnableCancelButton' : true,
+                'androidEnableCancelButton' : true, // default false
+                'winphoneEnableCancelButton' : true, // default false
                 'addDestructiveButtonWithLabel' : 'Delete it'                
             });
         },
@@ -24,7 +25,8 @@
         logout: function () {
             this.showActionSheet({
                 'buttonLabels': ['Log out'],
-                'androidEnableCancelButton' : true,
+                'androidEnableCancelButton' : true, // default false
+                'winphoneEnableCancelButton' : true, // default false
                 'addCancelButtonWithLabel': 'Cancel'
             });
         },

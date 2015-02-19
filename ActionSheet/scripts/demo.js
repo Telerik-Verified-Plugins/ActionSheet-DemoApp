@@ -6,6 +6,7 @@
 
         share: function () {
             this.showActionSheet({
+                'androidTheme' : window.plugins.actionsheet.ANDROID_THEMES.THEME_DEVICE_DEFAULT_LIGHT,
                 'title': 'What do you want with this image?',
                 'buttonLabels': ['Share via Facebook', 'Share via Twitter'],
                 'addCancelButtonWithLabel': 'Cancel',
@@ -17,6 +18,7 @@
 
         delete: function () {
             this.showActionSheet({
+                'androidTheme' : window.plugins.actionsheet.ANDROID_THEMES.THEME_DEVICE_DEFAULT_DARK,
                 'addCancelButtonWithLabel': 'Cancel',
                 'addDestructiveButtonWithLabel' : 'Delete note'
             });

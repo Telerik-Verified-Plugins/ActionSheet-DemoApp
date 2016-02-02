@@ -28,7 +28,8 @@
     "cordova-plugin-dialogs",
     "cordova-plugin-network-information",
     "cordova-plugin-splashscreen",
-    "cordova-plugin-statusbar"
+    "cordova-plugin-statusbar",
+    "nl.x-services.plugins.actionsheet@1.1.7"
   ],
   "AndroidPermissions": [
     "android.permission.INTERNET"

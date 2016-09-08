@@ -23,13 +23,12 @@
   "FrameworkVersion": "4.0.0",
   "CorePlugins": [
     "cordova-plugin-console",
-    "cordova-plugin-crosswalk-webview@1.2.0",
     "cordova-plugin-device",
     "cordova-plugin-dialogs",
     "cordova-plugin-network-information",
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
-    "nl.x-services.plugins.actionsheet@1.1.7"
+    "nl.x-services.plugins.actionsheet@2.3.0"
   ],
   "AndroidPermissions": [
     "android.permission.INTERNET"
